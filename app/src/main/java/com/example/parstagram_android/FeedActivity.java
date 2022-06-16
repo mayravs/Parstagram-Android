@@ -37,7 +37,7 @@ public class FeedActivity extends AppCompatActivity {
                 // Your code to refresh the list here.
                 // Make sure you call swipeContainer.setRefreshing(false)
                 // once the network request has completed successfully.
-                adapter.clear();
+                clear();
                 queryPosts();
                 swipeContainer.setRefreshing(false);
 
@@ -91,5 +91,17 @@ public class FeedActivity extends AppCompatActivity {
                 adapter.notifyDataSetChanged();
             }
         });
+    }
+
+    public void addAll(List<Post> posts)
+    {
+        allPosts.addAll(posts);
+        adapter.notifyDataSetChanged();
+    }
+
+    protected void clear()
+    {
+        allPosts.clear();
+        adapter.notifyDataSetChanged();
     }
 }
